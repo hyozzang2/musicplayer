@@ -4,28 +4,30 @@ let button;
 
 function setup()
 {
-    createCanvas(200,200);
-    song=loadSound('music.mp3',loaded);
-    buton=createButton('play');
+    createCanvas(640,480);
+    soundFormats('mp3', 'ogg');
+    musicFile = loadSound('music', loadMusic);
+    
+    button=createButton('play');
     button.mousePressed(togglePlaying);
-    background(51);
-//    soundFormats('mp3', 'ogg');
-//    musicFile = loadSound('music', LoadMusic);
-//    musicFile.play();
+ 
 
 }
 
 function togglePlaying(){
-    if(!song.isPlaying()){
-        song.play()
-        song.setVolume(0.3);
+    if(!musicFile.isPlaying()){
+        musicFile.play()
         button.html('pause');
     }else{
-        song.stop();
+        musicFile.stop();
         button.html('play');
     }
 }
 
-function loaded(){
-    console.log('loaded');
+function loadMusic(){
+    console.log("It's working");
+}
+function draw(){
+    fill(255,0,0);
+    ellipse(50,50,100,100);
 }
